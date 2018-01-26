@@ -1,0 +1,22 @@
+{
+  "name": "Unicrawler.DevTools",
+  "version": "1.0.0",
+  "description": "Unicrawler DevTools",
+  "main": "app.js",
+  "dependencies": {
+    "babel-core": "^5.8.20",
+    "babel-loader": "^5.3.2",
+    "babel-runtime": "^5.8.25",
+    "file-loader": "^0.8.4",
+    "webpack": "^1.10.5"
+  },
+  "scripts": {
+    "dev": "webpack --debug --watch --devtool cheap-module-source-map",
+    "dist": "webpack -p",
+    "clean": "rm -rf build"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "raw-loader": "^0.5.1"
+  }
+}

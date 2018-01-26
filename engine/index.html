@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Unicrawler DevTools</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Yuanhai He">
+    <style>
+      webview {
+        display:inline-flex;
+        width:0;
+        height:0
+      }
+    </style>
+  </head>
+
+  <body style="height: 100%">
+    <script type="text/javascript">
+      window.ipc = require("electron").ipcRenderer;
+      window.$require = require;
+      delete window.module;
+      delete window.require;
+    </script>
+    <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="main.bundle.js"></script>
+  </body>
+
+</html>
