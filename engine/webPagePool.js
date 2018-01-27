@@ -26,7 +26,12 @@ function WebPagePool(number = 1) {
 
     this.close = () => {
         toStop = true;
+        $views.forEach($view => {
+            $view.dispose();
+        })
     }
+
+    this.waitingTaskNum = () => queue.length;
 
     this.isStop = () => toStop;
 
