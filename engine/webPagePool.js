@@ -29,18 +29,19 @@ function WebPagePool(number = 1) {
         $views.forEach($view => {
             $view.dispose();
         })
+        $views.splice(0,$views.length)
     }
 
-    this.waitingTaskNum = () => queue.length;
-
-    this.isStop = () => toStop;
+    this.queue = queue;
 
     this.failBack = () => {
         queue.push(...failQueue)
         failQueue = [];
     };
 
-    this.failQueue = () => failQueue;
+    this.failQueue = failQueue;
+
+    this.$views = $views;
 
     this.isOver = () => (queue.length === 0);
     let endlessLoop = () => {
@@ -67,6 +68,8 @@ function WebPagePool(number = 1) {
                                     failQueue.push(task);
                                     $views.unshift($view);
                                 })
+                            }else{
+                                $views.unshift($view);
                             }
                         }
                     )

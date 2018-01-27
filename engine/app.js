@@ -15,6 +15,7 @@ window.resetWebpage = (numbers = 1) => {
         $views.forEach($view => {
             $view.dispose();
         });
+        $views.splice(0,$views.length)
     }
 
     window.$views = (new Array(numbers)).fill(0).map((v,i) => (new WebPage(i)));
