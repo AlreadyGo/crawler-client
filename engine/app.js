@@ -15,20 +15,27 @@ window.resetWebpage = (numbers = 1) => {
         $views.forEach($view => {
             $view.dispose();
         });
-        $views.splice(0,$views.length)
     }
 
-    window.$views = (new Array(numbers)).fill(0).map((v,i) => (new WebPage(i)));
-    window.$views.forEach($view => {$view.requestUrl("https://www.taobao.com/");})
+    window.$views = (new Array(numbers)).fill(0).map((v, i) => (new WebPage(i)));
+    if (numbers === 1) {
+        $(window.$views[0].webview).addClass('webview');
+    }
+    window.$views.forEach($view => {
+        $view.requestUrl("https://www.taobao.com/");
+    })
 };
 
 window.showDevTool = (order = 0) => $views[order].webview.openDevTools();
 
+window.showDevToolByPartition = (partition) => {
+    $(`webview[partition="${partition}"]`)[0].openDevTools()
+}
 window.load = (url, order = 0) => $views[order].requestUrl(url);
 
 $(() => {
     console.log("####################################");
-    console.log("Welcome to the unicrawler playground.");
+    console.log("Welcome to the crawler playground.");
     console.log("Use `load(url)` to open url in the target webview if you need to login before running a config.");
     console.log("Use `showDevTool()` to open the dev tool of the target webview.");
     console.log("Use `runConfig(config, args)` to test.");

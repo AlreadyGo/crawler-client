@@ -21,7 +21,11 @@ function WebPagePool(number = 1) {
 
     }
     this.submit = (config, args, callback) => {
-        queue.push({config, args, callback});
+        if(!toStop){
+            queue.push({config, args, callback});
+        }else{
+            throw 'pool has closed';
+        }
     }
 
     this.close = () => {
@@ -41,9 +45,8 @@ function WebPagePool(number = 1) {
 
     this.failQueue = failQueue;
 
-    this.$views = $views;
-
     this.isOver = () => (queue.length === 0);
+
     let endlessLoop = () => {
         check(
             () => {
