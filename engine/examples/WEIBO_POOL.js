@@ -1,4 +1,4 @@
-var config = [{
+let config = [{
     type: "waitFor",
     selector: "body .WB_miniblog .PCD_followlist",
     timeout: 30
@@ -9,18 +9,18 @@ var config = [{
     func: function(args, target, callback) {
         new Promise(function(f) {
             if (window.jQuery && window.$) return f(0);
-            var script = document.createElement("script");
+            const script = document.createElement("script");
             script.type = "text/javascript";
             script.onload = f;
             script.src = "//cdn.bootcss.com/jquery/2.1.4/jquery.min.js";
             document.body.appendChild(script);
         }).then(() => {
-            var html = $('body .WB_miniblog');
+            let html = $('body .WB_miniblog');
 
             function transform(t) {
-                var r = [];
+                let r = [];
                 t.find('dd.mod_info').each((i, v) => {
-                    var o = {},
+                    let o = {},
                         $t = $(v);
                     o.name = $t.find('.info_name a strong').text();
                     o.url = $t.find('.info_name a').attr('href');
@@ -57,7 +57,7 @@ let cats =
 
 cats.forEach((cat)=>{
     let len = cat.total;
-    for(var i=1;i<len+1;i++){
+    for(let i=1;i<len+1;i++){
         pool.submit(config,Object.assign({},cat,{url:`${cat.url}?page=${i}`}),callback)
     }
 })
