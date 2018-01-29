@@ -14,7 +14,7 @@
 ### 爬取微博明星分类下前100页数据
 [微博链接](https://d.weibo.com/1087030002_2975_1003_0#)
 ![微博列表页.png](https://alreadygo.github.io//images/crawler/微博列表页.png)
-在控制台执行以下代码:
+##### 在控制台执行以下代码:
 ```
 var config = [{
     type: "waitFor",
