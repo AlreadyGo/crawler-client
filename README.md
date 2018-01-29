@@ -4,16 +4,16 @@
 ### 解压客户端压缩包
 
 ### 双击crawler-devTools.exe
-![crawler-devTools.png](/images/crawler/crawler-devTools.png)
+![crawler-devTools.png](https://alreadygo.github.io//images/crawler/crawler-devTools.png)
 
 ### 在控制台执行代码
 - $toggleCrawlerLog(): 打印log
 - showDevTool(): 调出控制台
-![console.png](/images/crawler/console.png)
+![console.png](https://alreadygo.github.io//images/crawler/console.png)
 
 ### 爬取微博明星分类下前100页数据
 [微博链接](https://d.weibo.com/1087030002_2975_1003_0#)
-![微博列表页.png](/images/crawler/微博列表页.png)
+![微博列表页.png](https://alreadygo.github.io//images/crawler/微博列表页.png)
 在控制台执行以下代码:
 ```
 var config = [{
@@ -87,10 +87,10 @@ cats.forEach((cat)=>{
 - waitFor: 等待$('body .WB_miniblog .PCD_followlist')元素出现,超时时间30s
 - script: 在页面上执行异步脚本, args(参数,执行任务中传入,其中{url}表示需要请求的链接), target(执行结果,最终会返回), callback(脚本执行完必须调用callback方法)
 - 结果: 本例的结果均放入result变量中
-![运行中的结果.png](/images/crawler/运行中的结果.png)
+![运行中的结果.png](https://alreadygo.github.io//images/crawler/运行中的结果.png)
 - WebPagePool: 页面池, 打开多个页面异步执行爬取任务
 let pool = new WebPagePool(5); 创建一个有五个页面的页面池
-![electron的webview.png](/images/crawler/electron的webview.png)
+![electron的webview.png](https://alreadygo.github.io//images/crawler/electron的webview.png)
 - WebPagePool常用方法
 pool.submit(config,args,callback): config爬取配置,args爬取参数,callback回调方法(callback的参数就是script中的target)
 pool.queue: 等待执行的任务
@@ -98,7 +98,7 @@ pool.failQueue: 失败的任务
 pool.failBack(): 失败任务全部重试
 pool.isOver(): 页面池的任务是否结束
 pool.close(): 销毁页面池
-![pool-methods.png](/images/crawler/pool-methods.png)
+![pool-methods.png](https://alreadygo.github.io//images/crawler/pool-methods.png)
 
 ### 运行源码
 
