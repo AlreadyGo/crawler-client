@@ -39,8 +39,7 @@ function WebPagePool(number = 1) {
     this.queue = queue;
 
     this.failBack = () => {
-        queue.push(...failQueue)
-        failQueue = [];
+        queue.push(...failQueue.splice(0,failQueue.length))
     };
 
     this.failQueue = failQueue;

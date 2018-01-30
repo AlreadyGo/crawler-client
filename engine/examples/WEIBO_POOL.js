@@ -43,7 +43,7 @@ let config = [{
 
 ]
 
-let pool = new WebPagePool(5);
+let pool = new WebPagePool(10);
 
 let callback = data => {
     if (!result[data.cat])result[data.cat]=[];

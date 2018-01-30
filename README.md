@@ -16,7 +16,7 @@
 ![微博列表页.png](https://alreadygo.github.io//images/crawler/微博列表页.png)
 ##### 在控制台执行以下代码:
 ```
-var config = [{
+let config = [{
     type: "waitFor",
     selector: "body .WB_miniblog .PCD_followlist",
     timeout: 30
@@ -61,7 +61,7 @@ var config = [{
 
 ]
 
-let pool = new WebPagePool(5);
+let pool = new WebPagePool(10);
 
 let callback = data => {
     if (!result[data.cat])result[data.cat]=[];
@@ -89,7 +89,7 @@ cats.forEach((cat)=>{
 - 结果: 本例的结果均放入result变量中
 ![运行中的结果.png](https://alreadygo.github.io//images/crawler/运行中的结果.png)
 - WebPagePool: 页面池, 打开多个页面异步执行爬取任务
-let pool = new WebPagePool(5); 创建一个有五个页面的页面池
+let pool = new WebPagePool(10); 创建一个有10个页面的页面池
 ![electron的webview.png](https://alreadygo.github.io//images/crawler/electron的webview.png)
 - WebPagePool常用方法
 pool.submit(config,args,callback): config爬取配置,args爬取参数,callback回调方法(callback的参数就是script中的target)
