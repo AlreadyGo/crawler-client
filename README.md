@@ -103,17 +103,18 @@ pool.close(): 销毁页面池
 ### 运行源码
 
 ``` bash
-npm install -g electron-prebuilt
+npm install -g electron
 cd $PROJECT_DIR/engine
 npm install
 npm run dist
 cd $PROJECT_DIR
-electron .
+npm run start
 ```
 
 ### 打包客户端
 
 ```
+ npm i -g electron-packager
  cd $PROJECT_DIR
  electron-packager .
 ```
