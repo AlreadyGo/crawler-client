@@ -91,13 +91,13 @@ cats.forEach((cat)=>{
 - WebPagePool: 页面池, 打开多个页面异步执行爬取任务
 let pool = new WebPagePool(10); 创建一个有10个页面的页面池
 ![electron的webview.png](https://alreadygo.github.io//images/crawler/electron的webview.png)
-- WebPagePool常用方法
-pool.submit(config,args,callback): config爬取配置,args爬取参数,callback回调方法(callback的参数就是script中的target)
-pool.queue: 等待执行的任务
-pool.failQueue: 失败的任务
-pool.failBack(): 失败任务全部重试
-pool.isOver(): 页面池的任务是否结束
-pool.close(): 销毁页面池
+- WebPagePool常用方法/属性
+1. pool.submit(config,args,callback): config爬取配置,args爬取参数,callback回调方法(callback的参数就是script中的target)
+2. pool.queue: 等待执行的任务
+3. pool.failQueue: 失败的任务
+4. pool.failBack(): 失败任务全部重试
+5. pool.isOver(): 页面池的任务是否结束
+6. pool.close(): 销毁页面池
 ![pool-methods.png](https://alreadygo.github.io//images/crawler/pool-methods.png)
 
 ### 运行源码
